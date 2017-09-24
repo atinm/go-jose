@@ -87,7 +87,7 @@ standard where possible. The Godoc reference has a list of constants.
 
  Content encryption         | Algorithm identifier(s)
  :------------------------- | :------------------------------
- AES-CBC+HMAC               | A128CBC-HS256, A192CBC-HS384, A256CBC-HS512
+ AES-CBC+HMAC               | A128CBC-HS256, A192CBC-HS384, A256CBC-HS512, A256CBC
  AES-GCM                    | A128GCM, A192GCM, A256GCM 
 
  Compression                | Algorithm identifiers(s)

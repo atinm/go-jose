@@ -88,7 +88,7 @@ func TestRoundtripsJWE(t *testing.T) {
 	keyAlgs := []KeyAlgorithm{
 		DIRECT, ECDH_ES, ECDH_ES_A128KW, ECDH_ES_A192KW, ECDH_ES_A256KW, A128KW, A192KW, A256KW,
 		RSA1_5, RSA_OAEP, RSA_OAEP_256, A128GCMKW, A192GCMKW, A256GCMKW}
-	encAlgs := []ContentEncryption{A128GCM, A192GCM, A256GCM, A128CBC_HS256, A192CBC_HS384, A256CBC_HS512}
+	encAlgs := []ContentEncryption{A128GCM, A192GCM, A256GCM, A128CBC_HS256, A192CBC_HS384, A256CBC_HS512, A256CBC}
 	zipAlgs := []CompressionAlgorithm{NONE, DEFLATE}
 
 	serializers := []func(*JSONWebEncryption) (string, error){
@@ -124,7 +124,7 @@ func TestRoundtripsJWE(t *testing.T) {
 func TestRoundtripsJWECorrupted(t *testing.T) {
 	// Test matrix
 	keyAlgs := []KeyAlgorithm{DIRECT, ECDH_ES, ECDH_ES_A128KW, A128KW, RSA1_5, RSA_OAEP, RSA_OAEP_256, A128GCMKW}
-	encAlgs := []ContentEncryption{A128GCM, A192GCM, A256GCM, A128CBC_HS256, A192CBC_HS384, A256CBC_HS512}
+	encAlgs := []ContentEncryption{A128GCM, A192GCM, A256GCM, A128CBC_HS256, A192CBC_HS384, A256CBC_HS512, A256CBC}
 	zipAlgs := []CompressionAlgorithm{NONE, DEFLATE}
 
 	serializers := []func(*JSONWebEncryption) (string, error){
@@ -221,7 +221,7 @@ func TestEncrypterWithJWKAndKeyID(t *testing.T) {
 
 func TestEncrypterWithBrokenRand(t *testing.T) {
 	keyAlgs := []KeyAlgorithm{ECDH_ES_A128KW, A128KW, RSA1_5, RSA_OAEP, RSA_OAEP_256, A128GCMKW}
-	encAlgs := []ContentEncryption{A128GCM, A192GCM, A256GCM, A128CBC_HS256, A192CBC_HS384, A256CBC_HS512}
+	encAlgs := []ContentEncryption{A128GCM, A192GCM, A256GCM, A128CBC_HS256, A192CBC_HS384, A256CBC_HS512, A256CBC}
 
 	serializer := func(obj *JSONWebEncryption) (string, error) { return obj.CompactSerialize() }
 	corrupter := func(obj *JSONWebEncryption) bool { return false }

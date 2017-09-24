@@ -107,7 +107,7 @@ func getContentCipher(alg ContentEncryption) contentCipher {
 		return newAESCBC(16)
 	case A192CBC_HS384:
 		return newAESCBC(24)
-	case A256CBC_HS512:
+	case A256CBC_HS512, A256CBC:
 		return newAESCBC(32)
 	default:
 		return nil
